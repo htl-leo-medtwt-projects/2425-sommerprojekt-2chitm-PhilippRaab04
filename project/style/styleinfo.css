@@ -1,0 +1,128 @@
+@font-face {
+    font-family: IrishGrover;
+    src: url(../fonts/IrishGrover-Regular.ttf);
+}
+@font-face {
+    font-family: Big;
+    src: url(../fonts/BigShouldersStencil-VariableFont_opsz\,wght.ttf);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: white;
+    font-family: Big;
+    background-image: url(../img/backgroundmain.jpg); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 37.5rem; 
+    margin: 0 auto;
+    padding-bottom: 3.125rem; 
+}
+
+header {
+    text-align: center;
+    padding: 1.25rem 0; 
+    position: relative;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1.25rem; 
+    margin-top: 0.625rem; 
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.3125rem; 
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+.history-section {
+    display: flex;
+    background: white;
+    color: black;
+    padding: 0.625rem; 
+    border-radius: 0.625rem; 
+    margin-bottom: 1.25rem; 
+}
+
+.history-text {
+    width: 50%;
+    padding: 0.625rem; 
+}
+
+.history-flag {
+    width: 50%;
+    text-align: right;
+}
+
+.history-flag img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.3125rem; 
+}
+
+.units-section {
+    background: #000000;
+    padding: 1.25rem; 
+    border-radius: 0.625rem; 
+    margin-bottom: 1.25rem; 
+}
+
+h1 {
+    font-family: IrishGrover;
+    text-shadow: 
+        -1px -1px 0px black,
+        1px -1px 0px black,
+        -1px 1px 0px black,
+        1px 1px 0px black;
+}
+h2 {
+    font-family: IrishGrover;
+}
+h3 {
+    font-family: IrishGrover;
+}
+
+.units-section h2 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.unit {
+    display: flex;
+    align-items: center;
+    background: white;
+    color: black;
+    margin-bottom: 0.9375rem; 
+    border-radius: 0.625rem; 
+    overflow: hidden;
+}
+
+.unit-info {
+    width: 50%;
+    padding: 0.9375rem; 
+}
+
+.unit-image {
+    width: 50%;
+    height: 6.25rem; 
+    margin-right: 1rem;
+}
+.unit-image img {
+    height: 100%;
+    width: 100%;
+}
