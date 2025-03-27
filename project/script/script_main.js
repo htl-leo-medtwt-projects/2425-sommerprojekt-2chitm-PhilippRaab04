@@ -8,23 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>Willkommen bei <strong>Dawn of Empires</strong>! Dein Ziel ist es, gegnerische Basen zu zerstören und deine eigene strategisch zu verteidigen.</p>
             
             <h3>Einheitenarten 💣</h3>
-            <ul>
+            <div class="gamerules">
                 <li><span>Verteidigungseinheiten:</span> Abwehrgeschütze, Anti-Panzer-Kanonen, Abfangjäger</li>
                 <li><span>Angriffseinheiten:</span> Strategische Bomber, Kampfpanzer, Raketenartillerie</li>
-            </ul>
+            </div>
 
             <h3>Wirtschaft & Strategie 💰</h3>
-            <p>Jede Runde bekommst du begrenzte Ressourcen. Setze sie weise ein, um deine Einheiten zu kaufen und zu platzieren.</p>
+            <div class="gamerules"><p>Jede Runde bekommst du begrenzte Ressourcen. Setze sie weise ein, um deine Einheiten zu kaufen und zu platzieren.</p></div>
 
             <h3>Spielablauf ⚔️</h3>
-            <ol>
-                <li><span>Wähle deine Nation:</span> Deutschland, USA oder UdSSR</li>
-                <li><span>Positioniere deine Truppen</span> und plane deinen Angriff</li>
-                <li><span>Verteidige deine Basis</span> und nutze Kontermechaniken</li>
-                <li><span>Zerstöre die 3 gegnerischen Basen</span>, um zu siegen!</li>
-            </ol>
+            <div class="gamerules">
+                <p><span>Wähle deine Nation:</span> Deutschland, USA oder UdSSR</p>
+                <p><span>Positioniere deine Truppen</span> und plane deinen Angriff</p>
+                <p><span>Verteidige deine Basis</span> und nutze Kontermechaniken</p>
+                <p><span>Zerstöre die 3 gegnerischen Basen</span>, um zu siegen!</p>
+            </div>
 
-            <p><strong>Denke strategisch, handle weise – und führe dein Imperium zum Sieg! 🚀</strong></p>
+            <div class="gamerules"><p><strong>Denke strategisch, handle weise – und führe dein Imperium zum Sieg!</strong></p></div>
         </div>
     `;
     document.body.appendChild(tutorialPopup);
