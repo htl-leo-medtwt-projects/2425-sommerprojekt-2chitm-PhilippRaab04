@@ -44,10 +44,12 @@ header {
     border-radius: 0.3125rem; 
     font-weight: bold;
     transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .back-button:hover {
-    background-color: #555;
+    background-color: #3D3D3D;
+    transform: scale(1.2);
 }
 
 .history-section {
@@ -76,10 +78,14 @@ header {
 }
 
 .units-section {
-    background: #000000;
+    background: #333;
     padding: 1.25rem; 
     border-radius: 0.625rem; 
     margin-bottom: 1.25rem; 
+    transition: background-color 0.5s ease;
+}
+.units-section:hover{
+    background-color: #3D3D3D;
 }
 
 h1 {
@@ -110,6 +116,11 @@ h3 {
     margin-bottom: 0.9375rem; 
     border-radius: 0.625rem; 
     overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+.unit:hover {
+    transform:scale(1.05)
 }
 
 .unit-info {

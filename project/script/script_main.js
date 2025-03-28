@@ -5,12 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="tutorial-content">
             <span class="close-btn">&times;</span>
             <h2>Tutorial: Erobere den Kalten Krieg!</h2>
+            <div class="gamerules">
             <p>Willkommen bei <strong>Dawn of Empires</strong>! Dein Ziel ist es, gegnerische Basen zu zerstören und deine eigene strategisch zu verteidigen.</p>
-            
+            </div>
             <h3>Einheitenarten 💣</h3>
             <div class="gamerules">
-                <li><span>Verteidigungseinheiten:</span> Abwehrgeschütze, Anti-Panzer-Kanonen, Abfangjäger</li>
-                <li><span>Angriffseinheiten:</span> Strategische Bomber, Kampfpanzer, Raketenartillerie</li>
+                <p><span>Verteidigungseinheiten:</span> Abwehrgeschütze, Anti-Panzer-Kanonen, Abfangjäger</p>
+                <p><span>Angriffseinheiten:</span> Strategische Bomber, Kampfpanzer, Raketenartillerie</p>
             </div>
 
             <h3>Wirtschaft & Strategie 💰</h3>
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
     document.body.appendChild(tutorialPopup);
+    
 
     tutorialPopup.style.display = "none";
 
