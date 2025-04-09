@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game configuration</title>
+    <title>Game Configuration</title>
+    <link rel="stylesheet" href="../../style/cameconfig.css">
 </head>
 <body>
+    <div class="game-container">
+        <h1 class="game-title">Game Options</h1>
 
-    
-    
+        <div class="flags-container">
+            <img src="../../img/flag/udssr.png" alt="USSR Flag" class="flag">
+            <img src="../../img/flag/germany.jpeg" alt="Germany Flag" class="flag">
+            <img src="../../img/flag/usa.jpg" alt="USA Flag" class="flag">
+        </div>
+
+        <div class="game-options">
+            <button id="against-bot" class="option-button">Against Bot</button>
+            <button id="coop" class="option-button">COOP</button>
+        </div>
+    </div>
+
+    <script src="../../script/gamesettings_script.js"></script>
 </body>
 </html>

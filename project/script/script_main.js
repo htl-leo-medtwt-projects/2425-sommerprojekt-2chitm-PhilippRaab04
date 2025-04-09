@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tutorialPopup = document.createElement("div");
-    tutorialPopup.classList.add("tutorial-popup-box");
+    tutorialPopup.classList.add("tutorial-popup-box"); 
     tutorialPopup.innerHTML = `
         <div class="tutorial-content">
             <span class="close-btn">&times;</span>
@@ -26,8 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
             <div class="gamerules"><p><strong>Denke strategisch, handle weise – und führe dein Imperium zum Sieg!</strong></p></div>
-        </div>
-    `;
+            <div class="gamerules"><p><strong>Sponsored by Maximilian Ferschmann</strong></p></div>    `;
     document.body.appendChild(tutorialPopup);
     
 
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = tutorialPopup.querySelector(".close-btn");
 
     tutorialButton.addEventListener("click", function () {
-        tutorialPopup.style.display = "flex";
+        tutorialPopup.style.display ="flex"; 
     });
 
     closeButton.addEventListener("click", function () {
@@ -46,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tutorialPopup.addEventListener("click", function (event) {
         if (event.target === tutorialPopup) {
-            tutorialPopup.style.display = "none";
+            tutorialPopup.style.display = "none"; 
         }
     });
 });
