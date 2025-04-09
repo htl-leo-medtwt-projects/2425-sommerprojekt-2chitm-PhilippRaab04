@@ -34,22 +34,123 @@ body {
     font-size: 5rem;
     margin-bottom: 4rem; 
     color: white;
-    
 }
 
 .flags-container {
     display: flex;
     justify-content: space-around;
     width: 31.25rem; 
-    margin: 1.25rem auto;
+    margin: 1.25rem auto; 
 }
 
 .flag {
     width: 9rem; 
     height: 6rem; 
-    border: 2px solid white; 
-    border-radius: 15px; 
+    border: 2px solid white;
+    border-radius: 15px;
     cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.flag:hover {
+    transform: scale(1.1);
+    border-color: #ffcc00; 
+}
+
+.option-button {
+    display: block;
+    width: 80%;
+    padding: 0.9375rem;
+    margin: 0.625rem auto;
+    background-color: rgba(100, 70, 30, 0.8); 
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: rgba(100, 70, 30, 1); 
+}
+
+
+#bot-mode-container {
+    display: none; 
+    text-align: center;
+    margin-top: 2rem; 
+}
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem; 
+}
+
+.difficulty-button {
+    padding: 0.625rem 1.25rem; 
+    font-size: 1.25rem;
+    border-radius: 0.3125rem; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.difficulty-button[data-difficulty="easy"] {
+    background-color: #00FF00; 
+    color: black;
+}
+
+.difficulty-button[data-difficulty="medium"] {
+    background-color: #FFFF00;
+    color: black;
+}
+
+.difficulty-button[data-difficulty="hard"] {
+    background-color: #FF0000; 
+    color: black;
+}
+
+.username-input {
+    margin-bottom: 2rem; 
+    text-align: center;
+}
+
+.username-input label {
+    font-size: 1.5rem; 
+    margin-right: 1rem; 
+}
+
+.username-input input {
+    width: 60%;
+    padding: 0.625rem;
+    font-size: 1.25rem; 
+    background-color: rgba(100, 70, 30, 0.8); 
+    color: white; 
+    border: 2px solid white; 
+    border-radius: 0.3125rem; 
+    transition: border-color 0.3s ease;
+    ::placeholder {
+        color: rgba(255, 255, 255, 0.5); 
+    }
+}
+
+.username-input input:focus {
+    outline: none;
+    border-color: #ffcc00; 
+}
+#battle-button {
+    background-color: rgba(100, 70, 30, 0.8); 
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.9375rem 1.875rem; 
+    border-radius: 0.3125rem; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#battle-button:hover {
+    background-color: rgba(100, 70, 30, 1); 
 }
 
 .option-button {
@@ -61,11 +162,17 @@ body {
     color: white;
     font-size: 1.5rem;
     border: none;
-    border-radius: 0.3125rem; 
+    border-radius: 0.3125rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 2rem;
 }
 
 .option-button:hover {
     background-color: rgba(100, 70, 30, 1); 
+}
+
+#back-to-index {
+    margin-bottom: 2rem; 
+    display: block;
 }

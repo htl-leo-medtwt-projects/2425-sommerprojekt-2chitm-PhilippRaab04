@@ -8,17 +8,50 @@
 </head>
 <body>
     <div class="game-container">
-        <h1 class="game-title">Game Options</h1>
+        
 
+        <h1 class="game-title">Game Options</h1>
+        
+        <button id="back-to-index" class="option-button">Zurück zum Hauptmenü</button>
+        
         <div class="flags-container">
-            <img src="../../img/flag/udssr.png" alt="USSR Flag" class="flag">
-            <img src="../../img/flag/germany.jpeg" alt="Germany Flag" class="flag">
-            <img src="../../img/flag/usa.jpg" alt="USA Flag" class="flag">
+            <img src="../../img/flag/udssr.png" alt="USSR Flag" class="flag" data-country="USSR">
+            <img src="../../img/flag/germany.jpeg" alt="Germany Flag" class="flag" data-country="FRG">
+            <img src="../../img/flag/usa.jpg" alt="USA Flag" class="flag" data-country="USA">
         </div>
 
         <div class="game-options">
             <button id="against-bot" class="option-button">Against Bot</button>
             <button id="coop" class="option-button">COOP</button>
+        </div>
+
+        <div id="bot-mode-container" style="display: none;">
+            <button id="back-button-bot" class="option-button">Zurück</button>
+            <div class="difficulty-buttons">
+                <button class="difficulty-button" data-difficulty="easy">EASY</button>
+                <button class="difficulty-button" data-difficulty="medium">MEDIUM</button>
+                <button class="difficulty-button" data-difficulty="hard">HARD</button>
+            </div>
+            <div class="username-input">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            <button id="battle-button" class="option-button">BATTLE</button>
+        </div>
+
+        <div id="coop-mode-container" style="display: none;">
+            <button id="back-button-coop" class="option-button">Zurück</button>
+            <div class="username-inputs">
+                <div class="username-input">
+                    <label for="username1">Username 1:</label>
+                    <input type="text" id="username1" placeholder="Enter username for Player 1">
+                </div>
+                <div class="username-input">
+                    <label for="username2">Username 2:</label>
+                    <input type="text" id="username2" placeholder="Enter username for Player 2">
+                </div>
+            </div>
+            <button id="battle-button-coop" class="option-button">BATTLE</button>
         </div>
     </div>
 
