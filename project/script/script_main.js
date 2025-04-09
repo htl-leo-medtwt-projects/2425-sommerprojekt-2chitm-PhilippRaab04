@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
     tutorialPopup.classList.add("tutorial-popup-box"); 
     tutorialPopup.innerHTML = `
         <div class="tutorial-content">
-            <span class="close-btn">&times;</span>
+            <div class="close-btn">&times;</div>
             <h2>Tutorial: Erobere den Kalten Krieg!</h2>
             <div class="gamerules">
             <p>Willkommen bei <strong>Dawn of Empires</strong>! Dein Ziel ist es, gegnerische Basen zu zerstören und deine eigene strategisch zu verteidigen.</p>
             </div>
             <h3>Einheitenarten 💣</h3>
             <div class="gamerules">
-                <p><span>Verteidigungseinheiten:</span> Abwehrgeschütze, Anti-Panzer-Kanonen, Abfangjäger</p>
-                <p><span>Angriffseinheiten:</span> Strategische Bomber, Kampfpanzer, Raketenartillerie</p>
+                <p>Verteidigungseinheiten: Abwehrgeschütze, Anti-Panzer-Kanonen, Abfangjäger</p>
+                <p>Angriffseinheiten: Strategische Bomber, Kampfpanzer, Raketenartillerie</p>
             </div>
 
             <h3>Wirtschaft & Strategie 💰</h3>
@@ -19,14 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <h3>Spielablauf ⚔️</h3>
             <div class="gamerules">
-                <p><span>Wähle deine Nation:</span> Deutschland, USA oder UdSSR</p>
-                <p><span>Positioniere deine Truppen</span> und plane deinen Angriff</p>
-                <p><span>Verteidige deine Basis</span> und nutze Kontermechaniken</p>
-                <p><span>Zerstöre die 3 gegnerischen Basen</span>, um zu siegen!</p>
+                <p>Wähle deine Nation: Deutschland, USA oder UdSSR</p>
+                <p>Positioniere deine Truppen und plane deinen Angriff</p>
+                <p>Verteidige deine Basis und nutze Kontermechaniken</p>
+                <p>Zerstöre die 3 gegnerischen Basen, um zu siegen!</p>
             </div>
 
             <div class="gamerules"><p><strong>Denke strategisch, handle weise – und führe dein Imperium zum Sieg!</strong></p></div>
-            <div class="gamerules"><p><strong>Sponsored by Maximilian Ferschmann</strong></p></div>    `;
+            <div class="gamerules"><p><strong>Sponsored by Maximilian Ferschmann</strong></p></div>    
+        </div>`;
     document.body.appendChild(tutorialPopup);
     
 

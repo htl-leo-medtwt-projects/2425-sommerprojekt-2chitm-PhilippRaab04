@@ -7,12 +7,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: IrishGrover;
+    font-family: IrishGrover, Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-image: url('../img/backgroundsub.jpg');
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.8), rgba(50, 30, 10, 0.9)), url('../img/backgroundsub.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,158 +20,204 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    overflow: hidden;
 }
 
 .game-container {
     text-align: center;
     position: relative;
-    width: 80%;
-    max-width: 37.5rem; 
+    width: 90%;
+    max-width: 40rem;
+    background: rgba(100, 70, 30, 0.8);
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .game-title {
-    font-size: 5rem;
-    margin-bottom: 4rem; 
-    color: white;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.125rem;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
 }
 
 .flags-container {
     display: flex;
-    justify-content: space-around;
-    width: 31.25rem; 
-    margin: 1.25rem auto; 
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
 .flag {
-    width: 9rem; 
-    height: 6rem; 
-    border: 2px solid white;
-    border-radius: 15px;
+    width: 8rem;
+    height: 5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.125rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.625rem;
     cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.flag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 215, 0, 0.2);
+    transform: scale(0);
+    transition: transform 0.3s ease;
 }
 
 .flag:hover {
     transform: scale(1.1);
-    border-color: #ffcc00; 
+    border-color: #ffcc00;
+    box-shadow: 0 0.25rem 0.5rem rgba(255, 215, 0, 0.5);
+}
+
+.flag:hover::before {
+    transform: scale(1);
 }
 
 .option-button {
-    display: block;
-    width: 80%;
-    padding: 0.9375rem;
-    margin: 0.625rem auto;
-    background-color: rgba(100, 70, 30, 0.8); 
+    display: inline-block;
+    width: 100%;
+    max-width: 20rem;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.9), rgba(50, 30, 10, 0.9));
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     border: none;
-    border-radius: 0.3125rem;
+    border-radius: 0.625rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 .option-button:hover {
-    background-color: rgba(100, 70, 30, 1); 
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
 }
 
-
-#bot-mode-container {
-    display: none; 
+#bot-mode-container,
+#coop-mode-container {
+    display: none;
     text-align: center;
-    margin-top: 2rem; 
+    margin-top: 2rem;
 }
 
 .difficulty-buttons {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem; 
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .difficulty-button {
-    padding: 0.625rem 1.25rem; 
-    font-size: 1.25rem;
-    border-radius: 0.3125rem; 
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: 0.625rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 .difficulty-button[data-difficulty="easy"] {
-    background-color: #00FF00; 
+    background: linear-gradient(135deg, #00FF00, #87C38F);
     color: black;
 }
 
 .difficulty-button[data-difficulty="medium"] {
-    background-color: #FFFF00;
+    background: linear-gradient(135deg, #FFFF00, #FFD700);
     color: black;
 }
 
 .difficulty-button[data-difficulty="hard"] {
-    background-color: #FF0000; 
+    background: linear-gradient(135deg, #FF0000, #FF4500);
     color: black;
 }
 
+.difficulty-button:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
+}
+
 .username-input {
-    margin-bottom: 2rem; 
+    margin-bottom: 2rem;
     text-align: center;
 }
 
 .username-input label {
-    font-size: 1.5rem; 
-    margin-right: 1rem; 
+    font-size: 1.25rem;
+    margin-right: 1rem;
 }
 
 .username-input input {
-    width: 60%;
-    padding: 0.625rem;
-    font-size: 1.25rem; 
-    background-color: rgba(100, 70, 30, 0.8); 
-    color: white; 
-    border: 2px solid white; 
-    border-radius: 0.3125rem; 
-    transition: border-color 0.3s ease;
-    ::placeholder {
-        color: rgba(255, 255, 255, 0.5); 
-    }
+    width: 80%;
+    max-width: 20rem;
+    padding: 0.75rem;
+    font-size: 1.125rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 0.125rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.625rem;
+    transition: all 0.3s ease;
 }
 
 .username-input input:focus {
     outline: none;
-    border-color: #ffcc00; 
+    border-color: #ffcc00;
+    box-shadow: 0 0 0.5rem rgba(255, 215, 0, 0.5);
 }
+
 #battle-button {
-    background-color: rgba(100, 70, 30, 0.8); 
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.9), rgba(50, 30, 10, 0.9));
     color: white;
     font-size: 1.5rem;
-    padding: 0.9375rem 1.875rem; 
-    border-radius: 0.3125rem; 
+    padding: 1rem 2rem;
+    border-radius: 0.625rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 #battle-button:hover {
-    background-color: rgba(100, 70, 30, 1); 
-}
-
-.option-button {
-    display: block;
-    width: 80%;
-    padding: 0.9375rem; 
-    margin: 0.625rem auto; 
-    background-color: rgba(100, 70, 30, 0.8); 
-    color: white;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 0.3125rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 2rem;
-}
-
-.option-button:hover {
-    background-color: rgba(100, 70, 30, 1); 
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
 }
 
 #back-to-index {
-    margin-bottom: 2rem; 
     display: block;
+    margin: 2rem auto;
+    width: fit-content;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.9), rgba(50, 30, 10, 0.9));
+    color: white;
+    font-size: 1.25rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+#back-to-index:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
 }
