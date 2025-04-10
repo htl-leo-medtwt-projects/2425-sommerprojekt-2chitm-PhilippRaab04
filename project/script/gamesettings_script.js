@@ -147,7 +147,7 @@ function initializeGame() {
     setupBattleButtonCoop();
     setupAgainstBotMode();
     setupCoopMode();
-    setupBackToIndex(); // Add the new Back Button logic
+    setupBackToIndex(); 
 }
 
 // Start the game setup
