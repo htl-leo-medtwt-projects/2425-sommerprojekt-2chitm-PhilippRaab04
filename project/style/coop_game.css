@@ -1,0 +1,126 @@
+@font-face {
+    font-family: IrishGrover;
+    src: url(../fonts/IrishGrover-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: IrishGrover, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.8), rgba(50, 30, 10, 0.9)), url('../img/backgroundsub.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Vertikale Anordnung von Spielbrett und Inventar */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(7, 80px); 
+    gap: 8px; 
+    padding: 10px;
+    background: rgba(100, 70, 30, 0.9);
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
+}
+
+.cell {
+    width: 80px; 
+    height: 80px; 
+    background-color: rgba(39, 39, 39, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 0.625rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dark-cell {
+    background-color: rgba(10, 10, 10, 0.8); /* Dunkelgraue Farbe */
+}
+
+.base {
+    width: 40px; /* Größe der Basis */
+    height: 40px; /* Größe der Basis */
+    background-color: brown; /* Farbe der Basis */
+    border-radius: 50%; /* Runder Punkt */
+    position: absolute; /* Position innerhalb der Zelle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Zentrierung */
+}
+
+.inventory-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Breite des Containers */
+    margin-top: 20px; /* Abstand zum Spielfeld */
+}
+
+.inventory-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Abstand zwischen den Slots */
+    padding: 10px;
+    background: rgba(100, 70, 30, 0.9);
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
+    width: 45%; /* Breite jeder Inventarleiste */
+}
+
+.slot {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(39, 39, 39, 0.5);
+    border-radius: 0.625rem;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.slot.money {
+    background: #FFD700; /* Gelb für Geld/Guthaben */
+    color: black;
+    font-weight: bold;
+}
+
+.slot.attack {
+    background: #FF4500; /* Rot für Angriff */
+    color: white;
+}
+
+.slot.defense {
+    background: #1E90FF; /* Blau für Verteidigung */
+    color: white;
+}
+
+.slot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(255, 215, 0, 0.5);
+}
+
+/* Unterschiedliche Farben für die Spieler */
+.player1 .slot.money {
+    background: #FFD700; /* Spieler 1: Gelb */
+}
+
+.player2 .slot.money {
+    background: #00FF00; /* Spieler 2: Grün */
+}

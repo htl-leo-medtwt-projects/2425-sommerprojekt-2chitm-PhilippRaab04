@@ -8,8 +8,6 @@
 </head>
 <body>
     <div class="game-container">
-        
-
         <h1 class="game-title">Game Options</h1>
         
         <button id="back-to-index" class="option-button">Zurück zum Hauptmenü</button>
@@ -36,7 +34,7 @@
                 <label for="username">Username:</label>
                 <input type="text" id="username" placeholder="Enter your username">
             </div>
-            <button id="battle-button" class="option-button">BATTLE</button>
+            <a href="./game/game.html"><button id="battle-button" class="option-button">BATTLE</button></a>
         </div>
 
         <div id="coop-mode-container" style="display: none;">
@@ -51,7 +49,8 @@
                     <input type="text" id="username2" placeholder="Enter username for Player 2">
                 </div>
             </div>
-            <button id="battle-button-coop" class="option-button">BATTLE</button>
+            <!-- Änderung hier: Link auf coop_game.html -->
+            <a href="./game/coop_game.html"><button id="battle-button-coop" class="option-button">BATTLE</button></a>
         </div>
     </div>
 
