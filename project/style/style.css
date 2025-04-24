@@ -249,3 +249,36 @@ body, html {
   ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
   }
+
+  .about-box {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    width: 15%;
+    height: 8%;
+    background: #6A665D;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.about-box:hover {
+    transform: scale(1.05);
+}
+
+.about-box:active {
+    transform: scale(1.1);
+}
+
+.about-text {
+    font-size: 30px;
+    color: white;
+    font-family: IrishGrover;
+}
+
+a {
+    text-decoration: none;
+}
