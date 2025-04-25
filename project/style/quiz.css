@@ -1,0 +1,131 @@
+/* Allgemeine Einstellungen */
+@font-face {
+    font-family: IrishGrover;
+    src: url(../fonts/IrishGrover-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: IrishGrover, Arial, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.8), rgba(50, 30, 10, 0.9)), url('../img/backgroundsub.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .quiz-container {
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 40rem;
+    background: rgba(100, 70, 30, 0.8);
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  .quiz-title {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.125rem;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .question {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .answer-button,
+  #start-quiz {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    color: white;
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.9), rgba(50, 30, 10, 0.9));
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  }
+  
+  .answer-button:hover,
+  #start-quiz:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .result-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .slogan {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .reason {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .back-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    color: white;
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.9), rgba(50, 30, 10, 0.9));
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  }
+  
+  .back-button:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
+  }

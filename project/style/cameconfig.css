@@ -21,6 +21,7 @@ body {
     align-items: center;
     color: white;
     overflow: hidden;
+    flex-direction: column;
 }
 
 .game-container {
@@ -222,6 +223,26 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
 }
 
-#back-button-bot {
-    
+.find-nation {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#find-nation-button {
+    display: inline-block;
+    width: fit-content;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(100, 70, 30, 0.9), rgba(50, 30, 10, 0.9));
+    color: white;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+#find-nation-button:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.5);
 }
