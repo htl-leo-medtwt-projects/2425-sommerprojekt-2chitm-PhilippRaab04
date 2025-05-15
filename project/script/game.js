@@ -31,4 +31,13 @@ function createGameBoard() {
     }
 }
 
+function setUnits() {
+    const units = document.querySelectorAll('.unit');
+    const bases = document.querySelectorAll('.base');
+
+
+}   
+
 createGameBoard();
+
+

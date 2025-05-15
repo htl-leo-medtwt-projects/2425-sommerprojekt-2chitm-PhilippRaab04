@@ -27,6 +27,8 @@ new fullpage('#fullpage', {
     }
   }
 
+  // Fremdcode - aus
+
   // Lightbox-Funktionalität
   const images = document.querySelectorAll('.clickable-image');
   const lightboxOverlay = document.getElementById('lightbox-overlay');

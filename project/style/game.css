@@ -17,7 +17,7 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
-    flex-direction: column; /* Vertikale Anordnung von Spielbrett und Inventar */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     color: white;
@@ -44,22 +44,22 @@ body {
     color: white;
     border-radius: 0.625rem;
     transition: all 0.3s ease;
-    position: relative; /* für positionierung basen und so*/
+    position: relative; 
 }
 
 .dark-cell {
-    background-color: rgba(10, 10, 10, 0.8); /* Dunkelgraue Farbe */
+    background-color: rgba(10, 10, 10, 0.8); 
 }
 
 .base {
-    width: 40px; /* Größe der Basis */
-    height: 40px; /* Größe der Basis */
-    background-color: brown; /* Farbe der Basis */
-    border-radius: 50%; /* Runder Punkt */
-    position: absolute; /* Position innerhalb der Zelle */
+    width: 40px; 
+    height: 40px; 
+    background-color: brown; 
+    border-radius: 50%; 
+    position: absolute; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Zentrierung */
+    transform: translate(-50%, -50%); 
 }
 
 .cell:hover {
