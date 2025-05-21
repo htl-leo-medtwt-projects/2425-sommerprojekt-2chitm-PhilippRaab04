@@ -2,10 +2,7 @@
 let country = null; // To store the selected country
 let username = "";  // To store the username
 let difficulty = ""; // To store the selected difficulty
-let country1 = null; // To store the selected country for Player 1
-let country2 = null; // To store the selected country for Player 2
-let username1 = "";  // To store the username for Player 1
-let username2 = "";  // To store the username for Player 2
+
 
 // Selecting Elements
 const flags = document.querySelectorAll('.flag');

@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamisches Spielfeld</title>
+    <title>Dawn of Empires - Einzelspieler</title>
+    <script src="../../../script/gamesettings_script.js" defer></script>
+    <script src="../../../script/game.js" defer></script>
     <link rel="stylesheet" href="../../../style/game.css">
 </head>
 <body>
+    <h1>Dawn of Empires</h1>
     <div id="game-board" class="game-board"></div>
     <div id="inventory-bar" class="inventory-bar">
         <!-- Geld/Guthaben -->
-        <div class="slot money">100</div>
-        <!-- Angriffsfiguren -->
-        <div class="slot attack">⚔️</div>
-        <div class="slot attack">⚔️</div>
-        <div class="slot attack">⚔️</div>
-        <!-- Verteidigungsfiguren -->
-        <div class="slot defense">🛡️</div>
-        <div class="slot defense">🛡️</div>
-        <div class="slot defense">🛡️</div>
+        <div class="slot money" id="money-slot">💰 30</div>
+        <!-- Angriffsfigur kaufen -->
+        <div class="slot attack" id="attack-slot">⚔️<br><span class="price">20</span></div>
+        <!-- Verteidigungsfigur kaufen -->
+        <div class="slot flieger" id="flieger-slot">✈️<br><span class="price">30</span></div>
+        <div class="slot antiair" id="antiair-slot">🧿<br><span class="price">10</span></div>
+        <div class="slot defense" id="defense-slot">🛡️<br><span class="price">20</span></div>
+        <!-- Rakete kaufen -->
+        <div class="slot rocket" id="rocket-slot">🚀<br><span class="price">50</span></div>
+        <!-- Info-Slot für Status/Platzierungs-Info -->
+        <div class="slot info" id="info-slot"></div>
     </div>
-
-    <script src="../../../script/game.js"></script>
+    <div id="message"></div>
+    <button id="end-turn-btn">Zug beenden</button>
+    <!-- Gameover Overlay wird dynamisch eingefügt -->
 </body>
 </html>
