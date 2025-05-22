@@ -141,10 +141,10 @@ document.getElementById("game-board").onclick = function(e) {
             && targetUnit.owner === BOT 
             && (targetUnit.type === "attack" || targetUnit.type === "defense" || targetUnit.type === "antiAir")) {
             if(isAntiAirInArea(row, col)) {
-                setMessage("Flieger wurde von Luftabwehr abgefangen!");
+                setMessage("Flieger wurde von Luftabwehr abgefangen!", "warning");
             } else {
                 board[row][col].unit = null;
-                setMessage("Fliegerangriff erfolgreich! Gegnerische Einheit zerstört.");
+                setMessage("Fliegerangriff erfolgreich! Gegnerische Einheit zerstört.", "success");
             }
             money[PLAYER] -= UNIT_TYPES.flieger.cost;
             fliegerReady = false;
@@ -152,7 +152,7 @@ document.getElementById("game-board").onclick = function(e) {
             render();
             return;
         } else {
-            setMessage("Wähle eine feindliche Einheit als Ziel (kein Flieger, keine Basis)!");
+            setMessage("Wähle eine feindliche Einheit als Ziel (kein Flieger, keine Basis)!", "warning");
             return;
         }
     }
@@ -162,10 +162,10 @@ document.getElementById("game-board").onclick = function(e) {
         const targetBase = board[row][col].base;
         if(targetBase && targetBase.side === BOT && targetBase.alive) {
             if(isAntiAirInArea(row, col)) {
-                setMessage("Rakete wurde von Luftabwehr abgefangen!");
+                setMessage("Rakete wurde von Luftabwehr abgefangen!", "warning");
             } else {
                 targetBase.alive = false;
-                setMessage("🚀 Rakete gestartet und feindliche Basis zerstört!");
+                setMessage("🚀 Rakete gestartet und feindliche Basis zerstört!", "success");
                 checkGameOver();
             }
             money[PLAYER] -= UNIT_TYPES.rocket.cost;
@@ -174,18 +174,18 @@ document.getElementById("game-board").onclick = function(e) {
             render();
             return;
         } else {
-            setMessage("Rakete kann nur auf eine feindliche Basis geschossen werden!");
+            setMessage("Rakete kann nur auf eine feindliche Basis geschossen werden!", "warning");
             return;
         }
     }
     // Einheit platzieren
     if(selectedType) {
         if(!canPlaceUnit(row, col, PLAYER)) {
-            setMessage("Nur in den ersten 2 Reihen deiner Seite platzierbar und nicht auf Basen!");
+            setMessage("Nur in den ersten 2 Reihen deiner Seite platzierbar und nicht auf Basen!", "warning");
             return;
         }
         if(board[row][col].unit) {
-            setMessage("Hier steht schon eine Einheit!");
+            setMessage("Hier steht schon eine Einheit!", "warning");
             return;
         }
         if(selectedType === "rocket") {
@@ -196,7 +196,7 @@ document.getElementById("game-board").onclick = function(e) {
             return;
         }
         if(money[PLAYER] < UNIT_TYPES[selectedType].cost) {
-            setMessage("Nicht genug Geld!");
+            setMessage("Nicht genug Geld!", "error");
             return;
         }
         let unit = {type: selectedType, owner: PLAYER, hasMoved: false};
@@ -206,7 +206,7 @@ document.getElementById("game-board").onclick = function(e) {
         money[PLAYER] -= UNIT_TYPES[selectedType].cost;
         selectedType = null;
         render();
-        setMessage("Einheit platziert.");
+        setMessage("Einheit platziert.", "success");
         return;
     }
     // Einheit bewegen
@@ -222,22 +222,22 @@ document.getElementById("game-board").onclick = function(e) {
         const unit = board[from.row][from.col].unit;
         if(!unit) {selectedCell=null;return;}
         if(unit.type==="defense") {
-            setMessage("Verteidigungseinheiten können sich nicht bewegen!");
+            setMessage("Verteidigungseinheiten können sich nicht bewegen!", "warning");
             selectedCell = null;
             return;
         }
         if(unit.type === "antiAir") {
-            setMessage("Luftabwehr kann nicht bewegt werden!");
+            setMessage("Luftabwehr kann nicht bewegt werden!", "warning");
             selectedCell = null;
             return;
         }
         if(unit.hasMoved) {
-            setMessage("Diese Einheit hat bereits gezogen!");
+            setMessage("Diese Einheit hat bereits gezogen!", "warning");
             selectedCell = null;
             return;
         }
         if(!isAdjacent(from,to)) {
-            setMessage("Nur auf angrenzende Felder bewegen!");
+            setMessage("Nur auf angrenzende Felder bewegen!", "warning");
             selectedCell = null;
             return;
         }
@@ -246,7 +246,7 @@ document.getElementById("game-board").onclick = function(e) {
             board[to.row][to.col].unit = unit;
             board[from.row][from.col].unit = null;
             unit.hasMoved = true;
-            setMessage("Panzer hat Luftabwehr zerstört!");
+            setMessage("Panzer hat Luftabwehr zerstört!", "success");
             selectedCell = null;
             render();
             return;
@@ -254,7 +254,7 @@ document.getElementById("game-board").onclick = function(e) {
         // Flieger/Angriff auf AntiAir (Flieger verliert, Panzer siehe oben)
         if(board[to.row][to.col].unit && board[to.row][to.col].unit.type === "antiAir" && unit.type !== "attack") {
             board[from.row][from.col].unit = null;
-            setMessage("Deine Einheit wurde von Luftabwehr zerstört!");
+            setMessage("Deine Einheit wurde von Luftabwehr zerstört!", "error");
             selectedCell = null;
             render();
             return;
@@ -263,7 +263,7 @@ document.getElementById("game-board").onclick = function(e) {
         if(unit.type === "attack" && board[to.row][to.col].unit && board[to.row][to.col].unit.type === "defense" && board[to.row][to.col].unit.owner !== PLAYER) {
             board[to.row][to.col].unit = null;
             board[from.row][from.col].unit = null;
-            setMessage("Du hast eine Verteidigungseinheit zerstört! +30 Geld");
+            setMessage("Du hast eine Verteidigungseinheit zerstört! +30 Geld", "success");
             money[PLAYER] += 30;
             selectedCell = null;
             render();
@@ -273,7 +273,7 @@ document.getElementById("game-board").onclick = function(e) {
         if(board[to.row][to.col].unit && board[to.row][to.col].unit.owner !== PLAYER) {
             board[to.row][to.col].unit = null;
             board[from.row][from.col].unit = null;
-            setMessage("Beide Einheiten zerstört!");
+            setMessage("Beide Einheiten zerstört!", "warning");
             selectedCell = null;
             render();
             return;
@@ -285,14 +285,14 @@ document.getElementById("game-board").onclick = function(e) {
                 board[to.row][to.col].unit = unit;
                 board[from.row][from.col].unit = null;
                 unit.hasMoved = true;
-                setMessage("Panzer hat eine feindliche Basis zerstört!");
+                setMessage("Panzer hat eine feindliche Basis zerstört!", "success");
                 selectedCell = null;
                 render();
                 checkGameOver();
                 return;
             }
             if(isAntiAirInArea(to.row, to.col)) {
-                setMessage("Die Basis wird von Luftabwehr geschützt!");
+                setMessage("Die Basis wird von Luftabwehr geschützt!", "warning");
                 selectedCell = null;
                 return;
             }
@@ -300,7 +300,7 @@ document.getElementById("game-board").onclick = function(e) {
         // Bewegung auf Feld, das von AntiAir geschützt wird (Rakete/Flieger wird zerstört; Panzer siehe oben)
         if(unit.type === "rocket" && isAntiAirInArea(to.row, to.col)) {
             board[from.row][from.col].unit = null;
-            setMessage("Deine Einheit wurde von Luftabwehr abgefangen!");
+            setMessage("Deine Einheit wurde von Luftabwehr abgefangen!", "error");
             selectedCell = null;
             render();
             return;
@@ -310,12 +310,12 @@ document.getElementById("game-board").onclick = function(e) {
             board[to.row][to.col].unit = unit;
             board[from.row][from.col].unit = null;
             unit.hasMoved = true;
-            setMessage("Einheit gezogen.");
+            setMessage("Einheit gezogen.", "success");
             selectedCell = null;
             render();
             return;
         }
-        setMessage("Hier kannst du nicht hinziehen!");
+        setMessage("Hier kannst du nicht hinziehen!", "warning");
         selectedCell = null;
         return;
     }
@@ -388,7 +388,7 @@ function botTurn() {
             let t = targets[Math.floor(Math.random()*targets.length)];
             t.alive = false;
             money[BOT] -= UNIT_TYPES.rocket.cost;
-            setMessage("Bot hat eine Rakete auf deine Basis geschossen! 🚀");
+            setMessage("Bot hat eine Rakete auf deine Basis geschossen! 🚀", "error");
             render();
             checkGameOver();
             endBotTurn();
@@ -409,7 +409,7 @@ function botTurn() {
             let t = targets[Math.floor(Math.random()*targets.length)];
             board[t.row][t.col].unit = null;
             money[BOT] -= UNIT_TYPES.flieger.cost;
-            setMessage("Bot hat einen Fliegerangriff auf deine Einheit geflogen! ✈️");
+            setMessage("Bot hat einen Fliegerangriff auf deine Einheit geflogen! ✈️", "error");
             render();
             endBotTurn();
             return;
@@ -472,7 +472,7 @@ function botTurn() {
                     board[nr][nc].unit = u;
                     board[r][c].unit = null;
                     u.hasMoved = true;
-                    setMessage("Bot hat deine Luftabwehr zerstört!");
+                    setMessage("Bot hat deine Luftabwehr zerstört!", "error");
                     render();
                     break;
                 }
@@ -480,14 +480,14 @@ function botTurn() {
                     board[nr][nc].unit = null;
                     board[r][c].unit = null;
                     money[BOT] += 30;
-                    setMessage("Bot hat deine Verteidigungseinheit zerstört!");
+                    setMessage("Bot hat deine Verteidigungseinheit zerstört!", "error");
                     render();
                     break;
                 }
                 if(target && target.owner===PLAYER) {
                     board[nr][nc].unit = null;
                     board[r][c].unit = null;
-                    setMessage("Bot hat deine Einheit im Kampf zerstört!");
+                    setMessage("Bot hat deine Einheit im Kampf zerstört!", "error");
                     render();
                     break;
                 }
@@ -496,7 +496,7 @@ function botTurn() {
                     board[nr][nc].unit = u;
                     board[r][c].unit = null;
                     u.hasMoved = true;
-                    setMessage("Bot hat deine Basis zerstört!");
+                    setMessage("Bot hat deine Basis zerstört!", "error");
                     render();
                     checkGameOver();
                     break;
@@ -538,8 +538,17 @@ function checkGameOver() {
         gameOver = true;
     }
 }
-function setMessage(msg) {
-    document.getElementById("message").textContent = msg;
+
+// ==== MESSAGE-BOX (ANIMIERT & STYLES) ====
+function setMessage(msg, type) {
+    const messageBox = document.getElementById("message");
+    messageBox.textContent = msg;
+    messageBox.classList.remove("success", "warning", "error");
+    if (type) messageBox.classList.add(type);
+    // Animation neu triggern
+    messageBox.style.animation = "none";
+    void messageBox.offsetWidth;
+    messageBox.style.animation = null;
 }
 
 // ==== GAME OVER OVERLAY ====

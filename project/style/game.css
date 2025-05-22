@@ -1,4 +1,3 @@
-/* Game Board and General Layout */
 @font-face {
     font-family: IrishGrover;
     src: url(../fonts/IrishGrover-Regular.ttf);
@@ -124,6 +123,117 @@ h1 {
     color: #FFD700;
 }
 
+/* --- BUTTON: ZUG BEENDEN --- */
+button {
+    margin-top: 22px;
+    padding: 18px 42px;
+    background: linear-gradient(90deg,#FFD700 40%,#fff3 100%);
+    color: #442c07;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.28rem;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 32px #FFD70099, 0 0 4px #fff7;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s, transform 0.12s, box-shadow 0.2s;
+}
+
+button:before {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.28rem;
+}
+
+button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -60%;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg, #fff3 0%, #fff7 77%, transparent 100%);
+    opacity: 0.5;
+    pointer-events: none;
+    transition: left 0.4s;
+}
+
+button:hover, button:focus {
+    background: linear-gradient(90deg,#ffe451 60%,#fff9 100%);
+    box-shadow: 0 0 52px #FFD700cc, 0 0 12px #fff7;
+    transform: scale(1.04);
+}
+
+button:after, button:focus:after {
+    left: 120%;
+    transition: left 0.4s cubic-bezier(.43,1.7,.47,.98);
+}
+
+/* Disabled look */
+button:disabled {
+    background: linear-gradient(90deg,#7e6e22 40%,#78704f99 100%);
+    color: #d1c489;
+    cursor: not-allowed;
+    box-shadow: 0 0 12px #9c8b36, 0 0 0 #fff0;
+    opacity: 0.7;
+}
+
+/* --- MESSAGE/INFO BOX --- */
+#message {
+    margin: 18px auto 0 auto;
+    min-height: 48px;
+    padding: 14px 30px 14px 52px;
+    max-width: 520px;
+    background: linear-gradient(95deg, #1e2328e0 70%, #FFD70033 100%);
+    color: #fffce4;
+    font-size: 1.15rem;
+    font-family: inherit;
+    border-radius: 1.1rem;
+    box-shadow: 0 0 20px #FFD70033, 0 2px 8px #0005;
+    border: 2px solid #FFD70077;
+    position: relative;
+    transition: background 0.3s, border 0.3s, color 0.25s;
+    animation: infoPop 0.6s cubic-bezier(.4,2.3,.6,1.0);
+    z-index: 10;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+#message:before {
+    content: "💬";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.35em;
+    filter: drop-shadow(0 2px 2px #FFD70077);
+    animation: bounceIn 0.8s;
+}
+
+@keyframes infoPop {
+    0% { transform: scale(0.92) translateY(16px); opacity: 0.3; }
+    80% { transform: scale(1.04) translateY(-2px); }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes bounceIn {
+    0% { transform: scale(0.7) translateY(-14px);}
+    60% { transform: scale(1.1) translateY(3px);}
+    100% { transform: scale(1) translateY(0);}
+}
+
+/* Message-Types für Farbakzente */
+#message.success { border-color: #3cdf7b; background: linear-gradient(95deg, #1e2830e0 70%, #3cdf7b33 100%);}
+#message.warning { border-color: #f7c948; background: linear-gradient(95deg, #30281e 70%, #f7c94833 100%);}
+#message.error   { border-color: #ff3e3e; background: linear-gradient(95deg, #2e1e1e 70%, #ff3e3e33 100%);}
+
 /* Overlay für Game Over */
 .gameover-overlay {
     position: fixed;
@@ -175,3 +285,4 @@ h1 {
 .gameover-modal button:hover {
     background: #ffe070;
 }
+
