@@ -169,7 +169,7 @@ h1 {
     font-size: 1.25rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.18s;
+    transition:  0.18s;
     box-shadow: 0 0 12px #fff7;
 }
 .gameover-modal button:hover {
